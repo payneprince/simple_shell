@@ -33,7 +33,7 @@ size_t length(const lst_t *h)
 char **string(lst_t *head)
 {
 	lst_t *node = head;
-	size_t n_node = lst_length(head);
+	size_t n_node = length(head);
 	size_t i;
 	size_t j;
 	char **pel;
@@ -70,8 +70,8 @@ size_t display(const lst_t *h)
 	while (h)
 	{
 		_types(convert_number(h->num, 10, 0));
-		_type_char(':');
-		_type_char(' ');
+		_types_char(':');
+		_types_char(' ');
 		_types(h->str ? h->str : "(nil)");
 		_types("\n");
 		h = h->next;
@@ -96,7 +96,7 @@ lst_t *first_node(lst_t *node, char *prefix, char c)
 }
 
 
-ssize_tt index_node(lst_t *head, lst_t *node)
+ssize_t index_node(lst_t *head, lst_t *node)
 {
 	size_t a = 0;
 

@@ -3,7 +3,7 @@
 /**
  * _myhistory - It displays the history list
  * _myalais - Works like the 0_2 function
- * 
+ *
  * @get: The Structure containing potential arguments
  *  Return: Always 0
  */
@@ -26,7 +26,7 @@ int unset_alias(get_t *get, char *str)
 	*ptr = 0;
 	prev = delete_node_at_index(&(get->alias),
 		index_node(get->alias, first_node(get->alias, str, -1)));
-	*p = c;
+	*ptr = c;
 	return (prev);
 }
 
@@ -54,7 +54,7 @@ int print_alias(lst_t *node)
 	{
 		ptr = _strchr(node->str, '=');
 		for (c = node->str; c <= ptr; c++)
-		_type_char(*c);
+		_types_char(*c);
 		_types_char('\'');
 		_types(ptr + 1);
 		_types("'\n");

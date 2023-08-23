@@ -11,8 +11,8 @@
 char *serch(get_t *get, char *pathstr, char *cmd)
 {
 	char *path;
-	Int i = 0;
-	Int c = 0;
+	int i = 0;
+	int c = 0;
 
 	if (!pathstr)
 		return (NULL);
@@ -21,7 +21,7 @@ char *serch(get_t *get, char *pathstr, char *cmd)
 		if (exe_c(get, cmd))
 			return (cmd);
 	}
-	while (true)
+	while (1)
 	{
 		if (!pathstr[i] || pathstr[i] == ':')
 		{

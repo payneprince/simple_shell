@@ -27,7 +27,7 @@ int big(get_t *get, char **av)
 				find_cmd(get);
 		}
 		else if (is_interactive(get))
-			_type_char('\n');
+			_types_char('\n');
 		free_get(get, 0);
 	}
 	write_history(get);

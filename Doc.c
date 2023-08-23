@@ -70,7 +70,7 @@ ssize_t get_input(get_t *get)
 			j++;
 		}
 
-		i = j + 1; 
+		i = j + 1;
 		if (i >= len)
 		{
 			i = len = 0;

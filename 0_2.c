@@ -14,9 +14,9 @@ int _myexit(get_t *get)
 {
 	int ec;
 
-	if (get->argv[1]) 
+	if (get->argv[1])
 {
-		ec = 2vert(get->argv[1]);
+		ec = _vert(get->argv[1]);
 		if (ec == -1)
 		{
 			get->status = 2;
@@ -25,7 +25,7 @@ int _myexit(get_t *get)
 			type_char('\n');
 			return (1);
 		}
-		get->err_num = 2vert(get->argv[1]);
+		get->err_num = _vert(get->argv[1]);
 		return (-2);
 	}
 	get->err_num = -1;
@@ -44,7 +44,7 @@ int _mycd(get_t *get)
 	{
 		dir = _getenv(get, "HOME=");
 		if (!dir)
-			chdir_prev = /* TODO: what should this be? */
+			chdir_prev =
 				chdir((dir = _getenv(get, "PWD=")) ? dir : "/");
 		else
 			chdir_prev = chdir(dir);
@@ -57,8 +57,8 @@ int _mycd(get_t *get)
 			_types_char('\n');
 			return (1);
 		}
-		_types(_getenv(info, "OLDPWD=")), _types_char('\n');
-		chdir_prev = /* TODO: what should this be? */
+		_types(_getenv(get, "OLDPWD=")); _types_char('\n');
+		chdir_prev =
 			chdir((dir = _getenv(get, "OLDPWD=")) ? dir : "/");
 	}
 	else
@@ -84,7 +84,7 @@ int _myhelp(get_t *get)
 	arg_arr = get->argv;
 	_types("help call works. Function not yet implemented \n");
 	if (0)
-		_types(*arg_arr); 
+		_types(*arg_arr);
 	return (0);
 }
 

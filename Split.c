@@ -76,7 +76,7 @@ char **str_tow2(char *wrd, char drag)
 		return (NULL);
 	for (i = 0, j = 0; j < numb; j++)
 	{
-		while (wrd[i] == drag && wrd[i] != d)
+		while (wrd[i] == drag && wrd[i] != drag)
 			i++;
 		k = 0;
 		while (wrd[i + k] != drag && wrd[i + k] && wrd[i + k] != drag)

@@ -45,6 +45,28 @@ typedef struct lststr
 	struct lststr *next;
 } lst_t;
 
+/**
+ * struct passinfo - contains pseudo-arguements to pass into a function,
+ * allowing uniform prototype for function pointer struct
+ * @arg: a string generated from getline containing arguements
+ * @argv:an array of strings generated from arg
+ * @path: a string path for the current command
+ * @argc: the argument count
+ * @line_count: the error count
+ * @err_num: the error code for exit()s
+ * @linecount_flag: if on count this line of input
+ * @fname: the program filename
+ * @env: linked list local copy of environ
+ * @environ: custom modified copy of environ from LL env
+ * @history: the history node
+ * @alias: the alias node
+ * @env_changed: on if environ was changed
+ * @status: the return status of the last exec'd command
+ * @cmd_buf: address of pointer to cmd_buf, on if chaining
+ * @cmd_buf_type: CMD_type ||, &&, ;
+ * @readfd: the fd from which to read line input
+ * @histcount: the history line number count
+ */
 typedef struct passinfo
 {
 	char *arg;
@@ -82,9 +104,6 @@ char *cp(char *, int, int);
 char *serch(get_t*, char *, char *);
 int loophsh(char **);
 void type(char *);
-int print_alias(lst_t *node)
-int set_alias(get_t *, char *)
-int unset_alias(get_t *, char *)
 int type_char(char);
 int put_fd(char c, int file_des);
 int _put_fd(char *str, int file_des);
@@ -95,7 +114,7 @@ char *str_cat(char *, char *);
 char *str_cpy(char *, char *);
 char *str_dup(const char *);
 void _types(char *);
-int _type_char(char);
+int _types_char(char);
 char *_strncpy(char *, char *, int);
 char *strn_cat(char *, char *, int);
 char *_strchr(char *, char);
@@ -109,7 +128,7 @@ int is_interactive(get_t *);
 int bound(char, char *);
 int alpha(int);
 int vert(char *);
-int 2vert(char *);
+int _vert(char *);
 void _error(get_t *, char *);
 int decimal(int, int);
 char *convert_number(long int, int, int);
@@ -147,9 +166,7 @@ size_t length(const lst_t *);
 char **string(lst_t *);
 size_t display(const lst_t *);
 lst_t *first_node(lst_t *, char *, char);
-ssize_t read_buf(get_t *, char *, size_t *i)
-ssize_t input_buf(get_t *, char **, size_t *len)
-ssize_tt index_node(lst_t *, lst_t *);
+ssize_t index_node(lst_t *, lst_t *);
 int is_chain(get_t *, char *, size_t *);
 void check_chain(get_t *, char *, size_t *, size_t, size_t);
 int replace_alias(get_t *);

@@ -13,7 +13,7 @@
  * Return: 0 if no numbers, otherwise -1
  * Return: Always 0
  */
-int 2vert(char *s)
+int _vert(char *s)
 {
 	int i = 0;
 	unsigned long int result = 0;
